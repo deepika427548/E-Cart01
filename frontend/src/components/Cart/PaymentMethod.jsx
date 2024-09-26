@@ -16,8 +16,10 @@ const PaymentMethod = () => {
 
   const [createNewOrder, { error, isSuccess }] = useCreateNewOrderMutation();
 
-  const [stripeCheckoutSession, { data: checkoutData, error: checkOutError }] =
-    useStripeCheckoutSessionMutation();
+  const [
+    stripeCheckoutSession,
+    { data: checkoutData, error: checkoutError, isLoading },
+  ] = useStripeCheckoutSessionMutation();
 
   // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>..
 
@@ -25,10 +27,10 @@ const PaymentMethod = () => {
     if (checkoutData) {
       window.location.href = checkoutData?.url;
     }
-    if (checkOutError) {
-      toast.error(error?.data?.message);
+    if (checkoutError) {
+      toast.error(checkoutError?.data?.message);
     }
-  }, [checkoutData]);
+  }, [checkoutData, checkoutError]);
 
   //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
@@ -114,7 +116,12 @@ const PaymentMethod = () => {
               </label>
             </div>
 
-            <button id="shipping_btn" type="submit" className="btn py-2 w-100">
+            <button
+              id="shipping_btn"
+              type="submit"
+              className="btn py-2 w-100"
+              disabled={isLoading}
+            >
               CONTINUE
             </button>
           </form>

@@ -7,7 +7,7 @@ import CheckoutSteps from "./CheckoutSteps";
 
 const Shipping = () => {
   const navigate = useNavigate();
-  const [address, setAdress] = useState("");
+  const [address, setAddress] = useState("");
   const [city, setCity] = useState("");
   const [phoneNo, setPhoneNo] = useState("");
   const [zipcode, setZipcode] = useState("");
@@ -20,7 +20,7 @@ const Shipping = () => {
   useEffect(() => {
     if (shippingInfo) {
       console.log("shippingInfo from Redux:", shippingInfo);
-      setAdress(shippingInfo?.address);
+      setAddress(shippingInfo?.address);
       setCity(shippingInfo?.city);
       setPhoneNo(shippingInfo?.phoneNo);
       setZipcode(shippingInfo?.zipcode);
@@ -54,7 +54,7 @@ const Shipping = () => {
                 className="form-control"
                 name="address"
                 value={address}
-                onChange={(e) => setAdress(e.target.value)}
+                onChange={(e) => setAddress(e.target.value)}
                 required
               />
             </div>
