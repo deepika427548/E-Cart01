@@ -11,24 +11,7 @@ import sendToken from "../utils/sendToken.js";
 import crypto from "crypto"
 
 
-//Register new User=>>>>>>>>>>>>>>>>>>>..>/api/v1/user/signupUser
-// export const signupUser=asyncHandler(async(req,res,next)=>{
 
-//     const{name,email,password,confirmPassword}=req.body;
-  
-
-//     //check if the password is matched with confirm password
-//     if (password !== confirmPassword) {
-//         return next(new errorHandler("passwords do not match",400))
-//     }
-    
-
-//       const newUser=await userModel.create({name,email,password})
-      
-//       newUser.password=undefined;//to avoid sending password in the res
-
-//       sendToken(newUser,201,"registered",res)
-// })
 
 // Register new User => /api/v1/user/signupUser
 export const signupUser = asyncHandler(async (req, res, next) => {

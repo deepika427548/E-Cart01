@@ -6,7 +6,7 @@ dotenv.config({path:'./config/config.env'});
 
 const seedProducts=async()=>{
     try {
-        await mongoose.connect(`${process.env.DB_URI}/${process.env.DB_NAME}`)
+        await mongoose.connect(`${process.env.DB_URI}`)
         console.log(`${process.env.DB_URI}/${process.env.DB_NAME}`);
         
         
